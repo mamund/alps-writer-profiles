@@ -1,0 +1,146 @@
+{
+  "alps": {
+    "version": "1.0",
+    "descriptor": [
+      {
+        "id": "todoItem",
+        "name": "todoItem",
+        "doc": {
+          "format": "markdown",
+          "value": "This is a group of properties for a single todoItem"
+        },
+        "type": "semantic",
+        "descriptor": [
+          {
+            "id": "status",
+            "name": "status",
+            "doc": {
+              "format": "markdown",
+              "value": "Status of the todoItem"
+            },
+            "def": "https://schema.org/status",
+            "type": "semantic"
+          },
+          {
+            "id": "removeToDoItem",
+            "name": "remove",
+            "rel": "http://example.org/todo/remove",
+            "rt": "#todoItem",
+            "doc": {
+              "format": "markdown",
+              "value": "Removes an existing TODO Item from the collection"
+            },
+            "def": "http://example.org/todo/remove",
+            "tag": "delete",
+            "type": "idempotent"
+          },
+          {
+            "id": "updateToDoItem",
+            "name": "update",
+            "rel": "http://example.org/update",
+            "rt": "#todoItem",
+            "doc": {
+              "format": "markdown",
+              "value": "Transition to update an existing TODO Item."
+            },
+            "def": "http://example.org/update",
+            "type": "idempotent"
+          },
+          {
+            "id": "title01",
+            "name": "title",
+            "rel": "https://schema.org/title",
+            "doc": {
+              "format": "markdown",
+              "value": "Title of the todoItem"
+            },
+            "def": "https://schema.org/title",
+            "type": "semantic"
+          }
+        ]
+      },
+      {
+        "id": "status-enum",
+        "rel": "http://example.org/rels/status-enum collection",
+        "doc": {
+          "format": "markdown",
+          "value": "List of valid status values"
+        },
+        "def": "http://example.org/defs/status-enum",
+        "href": "http://example.org/docs/status-enum.html",
+        "type": "semantic"
+      },
+      {
+        "id": "createToDoItem",
+        "rel": "http://example.org/todo/create create create-form",
+        "rt": "#todoItem",
+        "doc": {
+          "format": "markdown",
+          "value": "Transition to create a new TODO Item\n\nSHOULD see a series of HREF descriptors as children, but not sure how to do that."
+        },
+        "def": "http://example.org/todo/create",
+        "type": "unsafe"
+      },
+      {
+        "id": "statusCheck",
+        "name": "statusCheck",
+        "title": "displays realtime status of TODO collection",
+        "rel": "http://examples.org/defs/status-check collection",
+        "rt": "#statusCheck",
+        "doc": {
+          "format": "markdown",
+          "value": "-\nDisplays realtime status of TODO collection"
+        },
+        "def": "http://examples.org/defs/status-check",
+        "type": "safe"
+      },
+      {
+        "id": "filterToDoItems",
+        "name": "filter",
+        "rt": "#todoItem",
+        "doc": {
+          "format": "markdown",
+          "value": "Returns a filtered list of TODO items.\n\nSupports filter by title (alpha) and status (open/closed)."
+        },
+        "type": "safe",
+        "descriptor": [
+          {
+            "id": "status01",
+            "name": "status",
+            "title": "Status of the todoItem",
+            "def": "https://schema.org/status",
+            "href": "#status",
+            "tag": "status-state",
+            "type": "semantic"
+          },
+          {
+            "id": "title01",
+            "name": "title",
+            "title": "Title of the todoItem",
+            "rel": "https://schema.org/title",
+            "def": "https://schema.org/title",
+            "href": "#title",
+            "tag": "status-state",
+            "type": "semantic"
+          }
+        ]
+      }
+    ],
+    "doc": {
+      "format": "markdown",
+      "value": "A simple ToDo example"
+    },
+    "link": [
+      {
+        "rel": "help",
+        "href": "http://example.org/todo/help.html",
+        "title": "Human-readable help file"
+      },
+      {
+        "rel": "documentation",
+        "href": "http://example.org/todo/docs.html",
+        "title": "machine-readable documentation"
+      }
+    ]
+  }
+}
